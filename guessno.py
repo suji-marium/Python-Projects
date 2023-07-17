@@ -1,4 +1,4 @@
-# PROJECT 
+"""# PROJECT 
 
 
 print("\n\n\n")
@@ -27,4 +27,37 @@ for i in range(1,5):
         count=count+1                                                                                                                                                                                                       
 
 if count==4:                                 
-    print("\n \t \t \t \t \t \t Oops you have used all your chances!\n\t \t \t \t \t \t Try again\n\t \t \t \t \t \t \t \t    GAME OVER !!")     
+    print("\n \t \t \t \t \t \t Oops you have used all your chances!\n\t \t \t \t \t \t Try again\n\t \t \t \t \t \t \t \t    GAME OVER !!") 
+"""
+import random
+print("Welcome to guess the number game")
+
+top_of_range=input("Enter a number ")
+if top_of_range.isdigit():
+    top_of_range=int(top_of_range)
+    if(top_of_range<=0):
+        print("Please enter a number greater than zero next time!")
+        quit()
+else:
+    print("Please enter a number next time!")
+    quit()
+
+random_no=random.randint(0,top_of_range)
+guess=0
+while True:
+    guess_no=input("Enter your guess ")
+    guess+=1
+    if guess_no.isdigit():
+        guess_no=int(guess_no)
+        if(random_no==guess_no):
+            print("Your guess is correct!")
+            break
+        elif(guess_no<random_no):
+            print("Your guess is smaller!")
+        else:
+            print("Your guess is larger!")
+    else:
+        print("Please enter a number next time!")
+        continue
+print("Your guessed the number in",guess,"guesses")
+
